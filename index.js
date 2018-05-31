@@ -22,7 +22,7 @@ request.get(DATE_NOTEPAD_URL, (err, res, body) => {
         // console.log(rechargeDate);
         const expireDate = new Date(rechargeDate.getTime() + 28*3600*24*1000 );
         // console.log(expireDate);
-        const expireDays = Math.floor((expireDate.getTime() - Date.now() ) / (3600*24*1000) );
+        const expireDays = Math.floor((expireDate.getTime() - Date.now() ) / (3600*24*1000) ) + 1;
         // console.log(expireDays);
         const civilDate = `${expireDate.getDate()}.${expireDate.getMonth() + 1}.${expireDate.getFullYear()}`;
         processExpireDays(expireDays, civilDate);
