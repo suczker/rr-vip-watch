@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+    <svg xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" 
+            width="400" height="125">
+         <style type="text/css" >
+         <![CDATA[
+       text {
+              font-family: Verdana,sans-serif;
+       }
+       text.green {
+          stroke: #43A047;
+          fill:   #43A047;
+       }
+       text.yellow {
+          stroke: #FFAB00;
+          fill:   #FFAB00;
+       }
+           text.red {
+              stroke: #DD2C00;
+              fill:   #DD2C00;
+           }
+       text.brown {
+          stroke: #6D4C41;
+          fill: #6D4C41;
+       }
+           text.black {
+              fill:   #000000;
+           }
+       text.large {
+         font-size: 22pt;
+       }
+       text.middle {
+          font-size: 14pt;
+       }
+       text.small {
+          font-size: 10pt;
+       }
+       a text:hover {
+          cursor: pointer;
+       }
+       a text:hover {
+          text-decoration: underline;
+       }
+   
+       tspan.bold {
+          font-weight: bold;
+       }
+         ]]>
+       </style>
+<text x="5" y="30" class="green large">
+    (+27)
+    </text>
+    <text x="85" y="20" class="green middle">
+    VIP Okchej !
+    </text>
+    <text x="90" y="36" class="small">
+    do 28.6.2018
+    </text>
+  <text x="5" y="56" class="black small">
+     Posielaj <tspan class="bold">PE REG RITNE__RIDLO</tspan> na 
+  </text>
+  <text x="5" y="70" class="black small">
+   <tspan class="bold">909 30 40</tspan> ty pandrava osrata (40 Kc/SMS)
+  </text>
+  <text x="5" y="85" class="black small">
+   !!!! Jsou tam <tspan class="bold">dve podtrzitka (__)</tspan> !!!
+  </text>
+<a xlink:href="https://anotepad.com/notes/p359qh">
+  <text x="5" y="110" class="black small">
+    Klikaj zde pre zapis data posledniho dobiti 
+  </text>
+  </a>
+</svg>

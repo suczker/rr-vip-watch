@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
- <svg xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" 
-         width="600" height="300">
+<svg xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" 
+         width="400" height="125">
       <style type="text/css" >
       <![CDATA[
 	text {
@@ -23,7 +23,6 @@
 	   fill: #6D4C41;
 	}
         text.black {
-           /* stroke: #000000; */
            fill:   #000000;
         }
 	text.large {
