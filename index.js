@@ -46,13 +46,13 @@ function processExpireDays(expireDays, civilDateStr, extraTxt){
     }
 
     const expireDaysStr = (expireDays > 0 ? '+' : '') + expireDays.toString();
-    const svgSegment = `<text x="5" y="30" class="${colorCSS} large">
+    const svgSegment = `<text x="5" y="45" class="${colorCSS} large">
     (${expireDaysStr})
     </text>
-    <text x="85" y="20" class="${colorCSS} middle">
+    <text x="90" y="37" class="${colorCSS} middle">
     ${txt}
     </text>
-    <text x="90" y="36" class="small">
+    <text x="90" y="52" class="small">
     do ${civilDateStr}
     </text>`;
 
@@ -62,7 +62,7 @@ function processExpireDays(expireDays, civilDateStr, extraTxt){
 function renderSVG2File(svgSegment){
     const fullSvg = `<?xml version="1.0"?>
     <svg xmlns="http://www.w3.org/2000/svg"  xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" 
-            width="400" height="125">
+            width="700" height="75">
          <style type="text/css" >
          <![CDATA[
        text {
@@ -108,18 +108,20 @@ function renderSVG2File(svgSegment){
        }
          ]]>
        </style>
-${svgSegment}
-  <text x="5" y="56" class="black small">
+ <rect width="700" height="75" style="fill: none; stroke-width:3;stroke:rgb(0,0,0)" />
+ <line x1="400" x2="400" y1="10" y2="62" style="fill: none; stroke-width:1;stroke:rgb(0,0,0)" ></line>
+ ${svgSegment}
+  <text x="410" y="16" class="black small">
      Posielaj <tspan class="bold">PE REG RITNE__RYDLO</tspan> na 
   </text>
-  <text x="5" y="70" class="black small">
+  <text x="410" y="30" class="black small">
    <tspan class="bold">909 30 40</tspan> ty pandrava osrata (40 Kc/SMS)
   </text>
-  <text x="5" y="85" class="black small">
+  <text x="410" y="45" class="black small">
    !!!! Jsou tam <tspan class="bold">dve podtrzitka (__)</tspan> !!!
   </text>
 <a xlink:href="https://anotepad.com/notes/p359qh">
-  <text x="5" y="110" class="black small">
+  <text x="410" y="60" class="black small">
     Klikaj zde pre zapis data posledniho dobiti 
   </text>
   </a>
