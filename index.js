@@ -110,7 +110,7 @@ function renderSVG2File(svgSegment){
        </style>
 ${svgSegment}
   <text x="5" y="56" class="black small">
-     Posielaj <tspan class="bold">PE REG RITNE__RIDLO</tspan> na 
+     Posielaj <tspan class="bold">PE REG RITNE__RYDLO</tspan> na 
   </text>
   <text x="5" y="70" class="black small">
    <tspan class="bold">909 30 40</tspan> ty pandrava osrata (40 Kc/SMS)
