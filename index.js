@@ -31,12 +31,12 @@ request.get(DATE_NOTEPAD_URL, (err, res, body) => {
 
 function processExpireDays(expireDays, civilDateStr, extraTxt){
     // console.log(expireDays, civilDateStr);
-    let colorCSS = "green", txt = "VIP Okchej !";
+    let colorCSS = "green", txt = "VIP oukchej !";
     if(expireDays <= 10 && expireDays > 3){
-        colorCSS = "yellow"; txt = "Akesy zmeny mohu priist !";
+        colorCSS = "yellow"; txt = "Akesi zmeny mohu prist !";
     }
     else if(expireDays <= 3 && expireDays >= 0){
-        colorCSS = "red"; txt = "Dobijaj svinar !";
+        colorCSS = "red"; txt = "Dobijaj ty svinar !";
     }
     else if(expireDays < 0){
         colorCSS = "brown"; txt = "Toto hadam vonauka nevyriesi !";
@@ -49,10 +49,10 @@ function processExpireDays(expireDays, civilDateStr, extraTxt){
     const svgSegment = `<text x="5" y="45" class="${colorCSS} large">
     (${expireDaysStr})
     </text>
-    <text x="90" y="37" class="${colorCSS} middle">
+    <text x="96" y="37" class="${colorCSS} middle">
     ${txt}
     </text>
-    <text x="90" y="52" class="small">
+    <text x="96" y="52" class="small">
     do ${civilDateStr}
     </text>`;
 
@@ -118,11 +118,11 @@ function renderSVG2File(svgSegment){
    <tspan class="bold">909 30 40</tspan> ty pandrava osrata (40 Kc/SMS)
   </text>
   <text x="410" y="45" class="black small">
-   !!!! Jsou tam <tspan class="bold">dve podtrzitka (__)</tspan> !!!
+   !!!! Su tam <tspan class="bold">dve podtrzitka (__)</tspan> !!!!
   </text>
 <a xlink:href="https://anotepad.com/notes/p359qh">
   <text x="410" y="60" class="black small">
-    Klikaj zde pre zapis data posledniho dobiti 
+    Klikaj zde pre zapis data posledneho dobitia 
   </text>
   </a>
 </svg>

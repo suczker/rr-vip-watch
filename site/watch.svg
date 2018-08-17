@@ -48,14 +48,14 @@
        </style>
  <rect width="700" height="75" style="fill: none; stroke-width:3;stroke:rgb(0,0,0)" />
  <line x1="400" x2="400" y1="10" y2="62" style="fill: none; stroke-width:1;stroke:rgb(0,0,0)" ></line>
- <text x="5" y="45" class="green large">
-    (+27)
+ <text x="5" y="45" class="yellow large">
+    (+6)
     </text>
-    <text x="90" y="37" class="green middle">
-    VIP Okchej !
+    <text x="96" y="37" class="yellow middle">
+    Akesi zmeny mohu prist !
     </text>
-    <text x="90" y="52" class="small">
-    do 28.6.2018
+    <text x="96" y="52" class="small">
+    do 22.8.2018
     </text>
   <text x="410" y="16" class="black small">
      Posielaj <tspan class="bold">PE REG RITNE__RYDLO</tspan> na 
@@ -64,11 +64,11 @@
    <tspan class="bold">909 30 40</tspan> ty pandrava osrata (40 Kc/SMS)
   </text>
   <text x="410" y="45" class="black small">
-   !!!! Jsou tam <tspan class="bold">dve podtrzitka (__)</tspan> !!!
+   !!!! Su tam <tspan class="bold">dve podtrzitka (__)</tspan> !!!!
   </text>
 <a xlink:href="https://anotepad.com/notes/p359qh">
   <text x="410" y="60" class="black small">
-    Klikaj zde pre zapis data posledniho dobiti 
+    Klikaj zde pre zapis data posledneho dobitia 
   </text>
   </a>
 </svg>
