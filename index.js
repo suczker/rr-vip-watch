@@ -1,32 +1,49 @@
 const request = require("request"), cheerio = require('cheerio');
 const fs = require('fs');
 
-const DATE_NOTEPAD_URL = 'https://anotepad.com/notes/p359qh';
+// const DATE_NOTEPAD_URL = 'https://anotepad.com/notes/p359qh';
+const DATE_NOTEPAD_URL = 'https://anotepad.com/notes/dr8dtc';
+
 const DST_FILE = __dirname + '/site/watch.svg';
 
 request.get(DATE_NOTEPAD_URL, (err, res, body) => {
     // console.log(body);
     const $ = cheerio.load(body);
     const txt = $('#note_content .plaintext').text().trim();
-    const dateMatch = txt.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
-    if(dateMatch === null){
-        // datum nesedi, vyrobim errorovy obrazek
-        processExpireDays(0, txt, "Daky debil napsal zle datum!");
-    }
-    else{
-        // datum sedi, tak si zjistim pocet dnu do vybiti a bude
-        // console.log(dateMatch)
-        const rechargeDate = new Date(parseInt(dateMatch[3], 10),
-                                        parseInt(dateMatch[2], 10) - 1,
-                                        parseInt(dateMatch[1], 10) );
-        // console.log(rechargeDate);
-        const expireDate = new Date(rechargeDate.getTime() + 28*3600*24*1000 );
-        // console.log(expireDate);
-        const expireDays = Math.floor((expireDate.getTime() - Date.now() ) / (3600*24*1000) ) + 1;
-        // console.log(expireDays);
-        const civilDate = `${expireDate.getDate()}.${expireDate.getMonth() + 1}.${expireDate.getFullYear()}`;
-        processExpireDays(expireDays, civilDate);
-    }
+    const lines = txt.split(/\n/);
+    console.log(lines);
+    let remainingDays = 0;
+    for(const line of lines){
+        if(line.trim().length === 0) continue;
+        const dateMatch = line.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+        if(dateMatch === null){
+            // datum nesedi, vyrobim errorovy obrazek
+            processExpireDays(0, txt, `Daky debil napsal zle datum!`);
+            process.exit(1);
+        }
+        else{
+            // datum sedi, tak si zjistim pocet dnu do vybiti a bude
+            // console.log(dateMatch)
+            const rechargeDate = new Date(parseInt(dateMatch[3], 10),
+                                            parseInt(dateMatch[2], 10) - 1,
+                                            parseInt(dateMatch[1], 10) );
+            // console.log(rechargeDate);            
+            const expireDate = new Date(rechargeDate.getTime() + 28*3600*24*1000 );
+            // console.log(expireDate);
+            const expireDays = Math.floor((expireDate.getTime() - Date.now() ) / (3600*24*1000) ) + 1;
+            if(remainingDays == 0){
+                remainingDays += expireDays;
+            }
+            else{
+                remainingDays += 28;
+            }
+        }
+    }    
+    const expireDate = new Date(Date.now() + remainingDays*3600*24*1000 );
+    const civilDate = `${expireDate.getDate()}.${expireDate.getMonth() + 1}.${expireDate.getFullYear()}`;
+    console.log(remainingDays, civilDate);
+    process.exit(0);
+    processExpireDays(expireDays, civilDate);
 });
 
 function processExpireDays(expireDays, civilDateStr, extraTxt){
