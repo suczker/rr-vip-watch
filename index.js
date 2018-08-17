@@ -1,8 +1,8 @@
 const request = require("request"), cheerio = require('cheerio');
 const fs = require('fs');
 
-// const DATE_NOTEPAD_URL = 'https://anotepad.com/notes/p359qh';
-const DATE_NOTEPAD_URL = 'https://anotepad.com/notes/dr8dtc';
+const DATE_NOTEPAD_URL = 'https://anotepad.com/notes/p359qh';
+// const DATE_NOTEPAD_URL = 'https://anotepad.com/notes/dr8dtc';
 
 const DST_FILE = __dirname + '/site/watch.svg';
 
@@ -11,7 +11,7 @@ request.get(DATE_NOTEPAD_URL, (err, res, body) => {
     const $ = cheerio.load(body);
     const txt = $('#note_content .plaintext').text().trim();
     const lines = txt.split(/\n/);
-    console.log(lines);
+    // console.log(lines);
     let remainingDays = 0;
     for(const line of lines){
         if(line.trim().length === 0) continue;
@@ -31,9 +31,9 @@ request.get(DATE_NOTEPAD_URL, (err, res, body) => {
             const expireDate = new Date(rechargeDate.getTime() + 28*3600*24*1000 );
             // console.log(expireDate);
             const expireDays = Math.floor((expireDate.getTime() - Date.now() ) / (3600*24*1000) ) + 1;
-            if(remainingDays == 0){
-                remainingDays += expireDays;
-            }
+	    if(remainingDays == 0 || expireDays < 0){
+		remainingDays = expireDays;	
+	    }
             else{
                 remainingDays += 28;
             }
@@ -41,9 +41,9 @@ request.get(DATE_NOTEPAD_URL, (err, res, body) => {
     }    
     const expireDate = new Date(Date.now() + remainingDays*3600*24*1000 );
     const civilDate = `${expireDate.getDate()}.${expireDate.getMonth() + 1}.${expireDate.getFullYear()}`;
-    console.log(remainingDays, civilDate);
-    process.exit(0);
-    processExpireDays(expireDays, civilDate);
+    // console.log(remainingDays, civilDate);
+    // process.exit(0);
+    processExpireDays(remainingDays, civilDate);
 });
 
 function processExpireDays(expireDays, civilDateStr, extraTxt){
